@@ -1,8 +1,7 @@
 import dash
-import dash_bootstrap_components as dbc
 from dash import Dash
 from flask import Flask
-from pages import drugs, home, proteins
+from pages import drugs, home, proteins, about
 
 app = Flask(__name__, instance_relative_config=True)
 dash_app = Dash(__name__,
@@ -13,6 +12,10 @@ dash_app = Dash(__name__,
             'src': 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js',
             'integrity': 'sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm',
             'crossorigin': 'anonymous'
+        },
+        {
+            'src': 'https://static.cloudflareinsights.com/beacon.min.js',
+            'data-cf-beacon': {"token": "0ded497d3a654a6daab165aabc396559"}
         }],
         external_stylesheets=[{
             'href': 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css',
@@ -40,6 +43,11 @@ dash.register_page('pages.drugs',
     title='Therapeutics',
     name='Therapeutics',
     layout=drugs.layout)
+dash.register_page('pages.about',
+    path='/about',
+    title='About',
+    name='About',
+    layout=about.layout)
 
 with app.app_context():
     dash_app.layout = dash.page_container

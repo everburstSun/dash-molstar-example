@@ -1,20 +1,15 @@
+import json
+
 import dash_bootstrap_components as dbc
 import dash_molstar
+from dash import html
 from dash_molstar.utils import molstar_helper
-from dash import html, dcc
 
-desc = 'A tiny, invisible enemy known as the Severe Acute Respiratory Syndrome \
-Coronavirus 2 (SARS-CoV-2) unleashed a pandemic that affected every corner \
-of our planet. Its origins trace back to a seafood market in Wuhan, China, \
-where it is believed to have jumped from animals to humans. Since then, SAR\
-S-CoV-2 has rapidly spread, challenging our global healthcare systems and s\
-cientific community to respond with urgency and innovation.'
+with open('pages/text.json') as f:
+    data = json.load(f)
+    desc = data['desc']
+    virus_desc = data['virus_desc']
 virus_3d = molstar_helper.parse_url("https://molstar.org/demos/states/sars-cov-2_virion.molx", mol=False)
-virus_desc = 'SARS-CoV-2 is an enveloped RNA virus with a diameter of 60~14\
-0 nm. Looking from outside, you are only able to see its protein capsid, in\
-cluding spike (S), envelope (E), membrane (M), and nucleocapsid (N) protein\
-. The spikes on its surface promotes fusion of the viral and human cellular\
- membrane, which make the virus look like a crown.'
 
 def get_sidebar(active_item=None):
     nav = html.Nav(id="sidebar", className="active", children=[
@@ -32,7 +27,8 @@ def get_sidebar(active_item=None):
             html.Hr(),
             dbc.NavItem(dbc.NavLink("Overview", href="/", className='text-white', active=True if active_item=='pages.home' else False)),
             dbc.NavItem(dbc.NavLink("Genome & Proteins", href="/proteins", className='text-white', active=True if active_item=='pages.proteins' else False)),
-            dbc.NavItem(dbc.NavLink("Therapeutics", href="/drugs", className='text-white', active=True if active_item=='pages.drugs' else False))
+            dbc.NavItem(dbc.NavLink("Therapeutics", href="/drugs", className='text-white', active=True if active_item=='pages.drugs' else False)),
+            dbc.NavItem(dbc.NavLink("About", href="/about", className='text-white', active=True if active_item=='pages.about' else False))
         ])
     ])
     return nav
