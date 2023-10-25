@@ -15,7 +15,7 @@ This repository provides a demonstration and example usage of the [**Dash-Molsta
 - Customizable visualization settings and data integration.
 
 ## Getting Started
-You can check [dash-molstar.everburstsun.net](http://dash-molstar.everburstsun.net/) for a glance at the app, or run it locally through the following steps:
+You can check [dash-molstar.everburstsun.net](https://dash-molstar.everburstsun.net/) for a glance at the app, or run it locally through the following steps:
 
 1. Clone this repository.
 

@@ -21,7 +21,7 @@ def get_sidebar(active_item=None):
         ]),
         html.Div(className="flex-column p-4 nav nav-pills", children=[
             html.A([
-                html.Img(src='https://raw.githubusercontent.com/everburstSun/dash-molstar-example/main/static/nav.png', alt='', width=48, height=48, className='mx-2'),
+                html.Img(src='https://webstatic.everburstsun.net/dash-molstar-example/nav.png', alt='', width=48, height=48, className='mx-2'),
                 html.Span("SARS-CoV-2", className='fs-4'),
             ], className='d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none', href='/'),
             html.Hr(),
@@ -37,7 +37,7 @@ def layout():
     banner = dbc.Row([
         dbc.Col([
             html.Div([
-                html.Img(src='https://raw.githubusercontent.com/everburstSun/dash-molstar-example/main/static/respiratory-droplet-md.png', alt='respiratory droplet', className="banner-image"),
+                html.Img(src='https://webstatic.everburstsun.net/dash-molstar-example/respiratory-droplet-md.png', alt='respiratory droplet', className="banner-image"),
                 html.Div([
                     html.Span(['By ', html.I('David S. Goodsell')]),
                     html.H5('Respiratory Droplet')

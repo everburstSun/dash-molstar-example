@@ -29,7 +29,7 @@ def layout():
         html.H1("An Overview of Proteins"),
         dbc.Row([
             dbc.Col([
-                html.Img(src='https://raw.githubusercontent.com/everburstSun/dash-molstar-example/main/static/covid-genome-prots.png', alt='genome proteins', useMap='#image-map', className="img-fluid"),
+                html.Img(src='https://webstatic.everburstsun.net/dash-molstar-example/covid-genome-prots.png', alt='genome proteins', useMap='#image-map', className="img-fluid"),
                 image_map
             ], xs=12, sm=12, md=12, lg=12, xl=8, id='genome_proteins_container', className='mt-3'),
             dbc.Col([
@@ -75,7 +75,7 @@ def layout():
 def download_structure(*args):
     PDBID = ctx.triggered_id
     if PDBID.startswith("NSP"):
-        url = f'https://raw.githubusercontent.com/everburstSun/dash-molstar-example/main/static/{PDBID}.pdb'
+        url = f'https://webstatic.everburstsun.net/dash-molstar-example/{PDBID}.pdb'
     else:
         url = f'https://files.rcsb.org/download/{PDBID}.cif'
     viewer_data = molstar_helper.parse_url(url)
